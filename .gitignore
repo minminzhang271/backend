@@ -31,3 +31,6 @@ coverage/
 
 # Optional: Linux/mac cache
 .cache/
+
+
+package-lock.json
