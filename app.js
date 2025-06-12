@@ -10,7 +10,9 @@ const imageRoutes = require('./routes/imageRoutes');
 const app = express();
 
 // 中间件
-app.use(cors());
+app.use(cors({
+  origin: '<http://localhost:5173>'
+}));
 app.use(express.json());
 
 // 路由
