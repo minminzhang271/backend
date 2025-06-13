@@ -1,25 +1,11 @@
 // config/database.js
-const dotenv = require('dotenv');
-const path = require('path');
-
-console.log('Loading database configuration...');
-console.log('Current environment:', process.env.NODE_ENV || 'development');
-
-// 加载对应的 env 文件
-const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development';
-const envPath = path.resolve(__dirname, '..', envFile); // ← 上一级目录（根目录）
-
-console.log('Using environment file:', envFile);
-console.log('Environment file path:', envPath);
-
-// 修正：使用 envPath 而不是 envFile
-dotenv.config({ path: envPath });
-
-console.log('Database configuration loaded from .env file');
+require('../utils/loadEnv')(); 
+// console.log('Environment variables:', process.env);
 console.log('DB_HOST:', process.env.DB_HOST);
-console.log('DB_USER:', process.env.DB_USER);
-console.log('DB_NAME:', process.env.DB_NAME);
-console.log('DB_PASSWORD:', process.env.DB_PASSWORD ? '***' : 'undefined');
+// console.log('DB_USER:', process.env.DB_USER);
+// console.log('DB_NAME:', process.env.DB_NAME);
+// console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
+// console.log('DB_PASSWORD:', process.env.DB_PASSWORD ? '***' : 'undefined');
 
 const dbConfig = {
   host: process.env.DB_HOST,
